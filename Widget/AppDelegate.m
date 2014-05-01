@@ -9,109 +9,78 @@
 #import "AppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
 #import "QMWidgetSystem.h"
+#import "DOMNode+Widget.h"
 
 @interface QMWidgetWindow : NSWindow
 {
-    NSPoint startPoint;
-    NSPoint startOrigin;
-    BOOL effectDrag;
-    
     WebView *webView;
+    QMWidgetBridge *bridge;
 }
 @property (nonatomic, assign) WebView *webView;
+@property (nonatomic, assign) QMWidgetBridge *bridge;
 @end
 
 @implementation QMWidgetWindow
 @synthesize webView;
+@synthesize bridge;
 
 - (BOOL)canBecomeKeyWindow
 {
     return YES;
 }
 
-- (void)mouseDown:(NSEvent *)theEvent
-{
-    startPoint = [NSEvent mouseLocation];
-    startOrigin = self.frame.origin;
-}
-
-- (void)mouseDragged:(NSEvent *)theEvent
-{
-    NSPoint point = [NSEvent mouseLocation];
-    NSPoint origin = self.frame.origin;
-    
-    origin.x = startOrigin.x + (point.x - startPoint.x);
-    origin.y = startOrigin.y + (point.y - startPoint.y);
-    
-    [self setFrameOrigin:origin];
-}
-
-- (void)mouseUp:(NSEvent *)theEvent
-{
-    
-}
-
 - (void)sendEvent:(NSEvent *)theEvent
 {
-    NSEventType type = [theEvent type];
-    if (!(type == NSLeftMouseDown || type == NSLeftMouseDragged || type == NSLeftMouseUp))
+    if (theEvent.type != NSLeftMouseDown)
     {
         [super sendEvent:theEvent];
         return;
     }
     
-    if ([theEvent type] == NSLeftMouseDown)
+    //获得鼠标点击的元素
+    NSPoint point = [theEvent locationInWindow];
+    NSDictionary *info = [webView elementAtPoint:point];
+    DOMNode *domNode = [info objectForKey:@"WebElementDOMNode"];
+    BOOL editable = [[info objectForKey:@"WebElementIsContentEditableKey"] boolValue];
+    
+    //如果元素可以编辑或不可以拖动,让Web处理
+    if (editable ||
+        ![domNode isKindOfClass:[DOMNode class]] ||
+        ![domNode widgetDraggable])
     {
-        NSPoint point = [theEvent locationInWindow];
-        NSDictionary *info = [webView elementAtPoint:point];
-        DOMHTMLElement *domNode = [info objectForKey:@"WebElementDOMNode"];
-        BOOL editable = [[info objectForKey:@"WebElementIsContentEditableKey"] boolValue];
-        
-        BOOL isDataScroll = NO;
-        BOOL isButton = NO;
-        DOMHTMLElement *findNode = domNode;
-        while (findNode)
-        {
-            NSString *roleName = [findNode.attributes getNamedItem:@"role"].nodeValue;
-            //判定是否是按钮
-            if ([roleName isEqualToString:@"button"])
-            {
-                isButton = YES;
-                break;
-            }
-            //判定是否是滚动条
-            if ([findNode respondsToSelector:@selector(idName)] && [findNode.idName isEqualToString:@"dataScroll"])
-            {
-                isDataScroll = YES;
-                break;
-            }
-            findNode = (DOMHTMLElement*)findNode.parentElement;
-        }
-        
-        if (!editable && !isDataScroll && !isButton)
-        {
-            effectDrag = YES;
-            [self mouseDown:theEvent];
-        }
-    }
-    else if ([theEvent type] == NSLeftMouseDragged)
-    {
-        if (effectDrag)
-        {
-            [self mouseDragged:theEvent];
-            return;
-        }
-    }
-    else if ([theEvent type] == NSLeftMouseUp)
-    {
-        if (effectDrag)
-        {
-            effectDrag = NO;
-            [self mouseUp:theEvent];
-        }
+        [super sendEvent:theEvent];
+        return;
     }
     
-    [super sendEvent:theEvent];
+    //以下代码的目的是当有拖动事件时，截获鼠标点击事件，否则执行点击事件
+    NSPoint startPoint = [NSEvent mouseLocation];
+    NSPoint startOrigin = self.frame.origin;
+    BOOL mouseDragged = NO;
+    
+    NSEvent *nextEvent = nil;
+    while ((nextEvent = [self nextEventMatchingMask:NSLeftMouseDraggedMask|NSLeftMouseUpMask]))
+    {
+        if (nextEvent.type == NSLeftMouseDragged)
+        {
+            mouseDragged = YES;
+            
+            NSPoint point = [NSEvent mouseLocation];
+            NSPoint origin = self.frame.origin;
+            origin.x = startOrigin.x + (point.x - startPoint.x);
+            origin.y = startOrigin.y + (point.y - startPoint.y);
+            [self setFrameOrigin:origin];
+        }
+        
+        if (nextEvent.type == NSLeftMouseUp)
+        {
+            if (!mouseDragged)
+            {
+                [super sendEvent:theEvent];
+                [super sendEvent:nextEvent];
+            }
+            break;
+        }
+    }
 }
 
 @end
@@ -128,7 +97,7 @@
     //NSString *widgetPath = @"/Library/Widgets/Stocks.wdgt";//股票
     //NSString *widgetPath = @"/Library/Widgets/Calculator.wdgt";//计算器
     //NSString *widgetPath = @"/Library/Widgets/Tile Game.wdgt";//拼贴游戏
-    //NSString *widgetPath = @"/Library/Widgets/Calendar.wdgt";//日历
+    NSString *widgetPath = @"/Library/Widgets/Calendar.wdgt";//日历
     //NSString *widgetPath = @"/Library/Widgets/World Clock.wdgt";//世界时钟
     //NSString *widgetPath = @"/Library/Widgets/Contacts.wdgt";//通讯录
     //NSString *widgetPath = @"/Library/Widgets/ESPN.wdgt";
@@ -140,7 +109,7 @@
     //NSString *widgetPath = [@"~/Library/Widgets/iStat nano.wdgt" stringByExpandingTildeInPath];
     //NSString *widgetPath = [@"~/Library/Widgets/Screenshot Plus.wdgt" stringByExpandingTildeInPath];
     //NSString *widgetPath = [@"~/Library/Widgets/Padlock.wdgt" stringByExpandingTildeInPath];
-    NSString *widgetPath = [@"~/Library/Widgets/Bluetooth Switch.wdgt" stringByExpandingTildeInPath];
+    //NSString *widgetPath = [@"~/Library/Widgets/Bluetooth Switch.wdgt" stringByExpandingTildeInPath];
     //NSString *widgetPath = [@"~/Library/Widgets/Wikipedia.wdgt" stringByExpandingTildeInPath];
     //NSString *widgetPath = [@"~/Library/Widgets/PEMDAS.wdgt" stringByExpandingTildeInPath];
     
@@ -171,6 +140,8 @@
     widgetBridge = [[QMWidgetBridge alloc] init];
     widgetBridge.bunldeIdentifier = bunldeIdentifier;
     widgetBridge.webView = webView;
+    
+    [(QMWidgetWindow*)self.window setBridge:widgetBridge];
     
     NSString *pluginName = [widgetBundle objectForInfoDictionaryKey:@"Plugin"];
     if (pluginName)
@@ -234,7 +205,7 @@
 }
 
 #pragma mark -
-#pragma mark WebEditingDelegate
+#pragma mark WebViewEditingDelegate
 
 //禁止WebView选中元素
 - (BOOL)webView:(WebView *)sender shouldChangeSelectedDOMRange:(DOMRange *)currentRange
@@ -242,6 +213,10 @@
        affinity:(NSSelectionAffinity)selectionAffinity
  stillSelecting:(BOOL)flag
 {
+    if (![proposedRange.startContainer widgetEditable] && ![proposedRange.endContainer widgetEditable])
+    {
+        return NO;
+    }
     return YES;
 }
 
@@ -290,18 +265,31 @@
     NSString *filePath = [[request URL] path];
     if (![[NSFileManager defaultManager] fileExistsAtPath:filePath])
     {
+        //寻找所有的语言包路径，放入按语言标准名称为Key的字典
+        if (!languageDic)
+        {
+            languageDic = [[NSMutableDictionary alloc] init];
+            NSArray *contentsItems = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:widgetBundle.bundlePath error:NULL];
+            for (NSString *subItem in contentsItems)
+            {
+                if ([subItem.pathExtension isEqualToString:@"lproj"])
+                {
+                    NSString *fileName = [subItem stringByDeletingPathExtension];
+                    NSString *language = [NSLocale canonicalLanguageIdentifierFromString:fileName];
+                    [languageDic setObject:subItem forKey:language];
+                }
+            }
+        }
+        
         NSString *fileName = [filePath lastPathComponent];
         NSString *superPath = [filePath stringByDeletingLastPathComponent];
         
-        //NSArray *localizations = [widgetBundle preferredLocalizations];
-        
-        NSArray *localizations = [widgetBundle localizations];
-        
         NSArray *preferredLanguages = [NSLocale preferredLanguages];
-        
-        for (NSString *localeIdentifier in localizations)
+        for (NSString *language in preferredLanguages)
         {
-            NSString *localeName = [localeIdentifier stringByAppendingPathExtension:@"lproj"];
+            NSString *localeName = [languageDic objectForKey:language];
+            if (!localeName) continue;
+            
             NSString *localeFilePath = [[superPath stringByAppendingPathComponent:localeName] stringByAppendingPathComponent:fileName];
             if ([[NSFileManager defaultManager] fileExistsAtPath:localeFilePath])
             {
@@ -311,33 +299,6 @@
         }
     }
     return request;
-}
-
-- (void)webView:(WebView *)sender resource:(id)identifier didFinishLoadingFromDataSource:(WebDataSource *)dataSource
-{
-    static NSMutableDictionary *info = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        info = [[NSMutableDictionary alloc] init];
-    });
-    
-    for (WebResource *subSource in dataSource.subresources)
-    {
-        if (![info objectForKey:[subSource.URL absoluteString]])
-        {
-            [info setObject:@(YES) forKey:[subSource.URL absoluteString]];
-            if ([[subSource.URL absoluteString] hasSuffix:@"js"])
-            {
-                NSString *string = [[NSString alloc] initWithContentsOfURL:subSource.URL
-                                                                  encoding:NSUTF8StringEncoding
-                                                                     error:NULL];
-                if ([string rangeOfString:@"onfocus"].length > 0)
-                {
-                    NSLog(@"%@",[subSource.URL absoluteString]);
-                }
-            }
-        }
-    }
 }
 
 @end

@@ -13,6 +13,7 @@
 		041F79A1190CA801008EDE80 /* JSObjectConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 041F799A190CA801008EDE80 /* JSObjectConversion.m */; };
 		041F79A2190CA801008EDE80 /* JSObjectFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 041F799D190CA801008EDE80 /* JSObjectFunction.m */; };
 		041F79A3190CA801008EDE80 /* NSObject+JSObjectAssociation.m in Sources */ = {isa = PBXBuildFile; fileRef = 041F799F190CA801008EDE80 /* NSObject+JSObjectAssociation.m */; };
+		042BFB9819125C1000BB8C8E /* DOMNode+Widget.m in Sources */ = {isa = PBXBuildFile; fileRef = 042BFB9719125C1000BB8C8E /* DOMNode+Widget.m */; };
 		0448DBFE1911403C00A3F894 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0448DBFD1911403C00A3F894 /* MainMenu.xib */; };
 		0448DC03191140EB00A3F894 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0448DC05191140EB00A3F894 /* InfoPlist.strings */; };
 		0448DC08191140F300A3F894 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 0448DC0A191140F300A3F894 /* Credits.rtf */; };
@@ -27,7 +28,6 @@
 		B86960D618FE610D0078C2FC /* QMWidgetBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = B86960D518FE610D0078C2FC /* QMWidgetBridge.m */; };
 		B86960D818FF70070078C2FC /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B86960D718FF70070078C2FC /* JavaScriptCore.framework */; };
 		B86960DA18FF77070078C2FC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B86960D918FF77070078C2FC /* QuartzCore.framework */; };
-		B8AA5B621910D98300B51001 /* QMWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AA5B611910D98300B51001 /* QMWebView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,15 +55,17 @@
 		041F799D190CA801008EDE80 /* JSObjectFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSObjectFunction.m; sourceTree = "<group>"; };
 		041F799E190CA801008EDE80 /* NSObject+JSObjectAssociation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JSObjectAssociation.h"; sourceTree = "<group>"; };
 		041F799F190CA801008EDE80 /* NSObject+JSObjectAssociation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JSObjectAssociation.m"; sourceTree = "<group>"; };
+		042BFB9619125C1000BB8C8E /* DOMNode+Widget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DOMNode+Widget.h"; sourceTree = "<group>"; };
+		042BFB9719125C1000BB8C8E /* DOMNode+Widget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DOMNode+Widget.m"; sourceTree = "<group>"; };
 		0448DBFD1911403C00A3F894 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
-		0448DC04191140EB00A3F894 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		0448DC06191140EE00A3F894 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		0448DC07191140EF00A3F894 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		0448DC09191140F300A3F894 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		0448DC0B191140F600A3F894 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hant"; path = "zh-Hant.lproj/Credits.rtf"; sourceTree = "<group>"; };
-		0448DC0C191140F700A3F894 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hans"; path = "zh-Hans.lproj/Credits.rtf"; sourceTree = "<group>"; };
-		0448DC0D1911419400A3F894 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		0448DC0E1911419400A3F894 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file; name = ja; path = ja.lproj/Credits.rtf; sourceTree = "<group>"; };
+		0448DC04191140EB00A3F894 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0448DC06191140EE00A3F894 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		0448DC07191140EF00A3F894 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		0448DC09191140F300A3F894 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		0448DC0B191140F600A3F894 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = "zh-Hant"; path = "zh-Hant.lproj/Credits.rtf"; sourceTree = "<group>"; };
+		0448DC0C191140F700A3F894 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = "zh-Hans"; path = "zh-Hans.lproj/Credits.rtf"; sourceTree = "<group>"; };
+		0448DC0D1911419400A3F894 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0448DC0E1911419400A3F894 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = ja; path = ja.lproj/Credits.rtf; sourceTree = "<group>"; };
 		B83E3A5C1905007F00D505CB /* QMWidgetMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMWidgetMenu.h; sourceTree = "<group>"; };
 		B83E3A5D1905007F00D505CB /* QMWidgetMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMWidgetMenu.m; sourceTree = "<group>"; };
 		B869609B18FE5FE30078C2FC /* Widget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Widget.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,8 +87,6 @@
 		B86960D518FE610D0078C2FC /* QMWidgetBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMWidgetBridge.m; sourceTree = "<group>"; };
 		B86960D718FF70070078C2FC /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		B86960D918FF77070078C2FC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		B8AA5B601910D98300B51001 /* QMWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMWebView.h; sourceTree = "<group>"; };
-		B8AA5B611910D98300B51001 /* QMWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMWebView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,8 +186,8 @@
 				B83E3A5D1905007F00D505CB /* QMWidgetMenu.m */,
 				040F7C0A190B972A002AB976 /* QMWidgetSystem.h */,
 				040F7C0B190B972A002AB976 /* QMWidgetSystem.m */,
-				B8AA5B601910D98300B51001 /* QMWebView.h */,
-				B8AA5B611910D98300B51001 /* QMWebView.m */,
+				042BFB9619125C1000BB8C8E /* DOMNode+Widget.h */,
+				042BFB9719125C1000BB8C8E /* DOMNode+Widget.m */,
 				0448DBFD1911403C00A3F894 /* MainMenu.xib */,
 				B86960A518FE5FE30078C2FC /* Supporting Files */,
 			);
@@ -324,10 +324,10 @@
 			files = (
 				B83E3A5E1905007F00D505CB /* QMWidgetMenu.m in Sources */,
 				041F79A3190CA801008EDE80 /* NSObject+JSObjectAssociation.m in Sources */,
+				042BFB9819125C1000BB8C8E /* DOMNode+Widget.m in Sources */,
 				041F79A1190CA801008EDE80 /* JSObjectConversion.m in Sources */,
 				B86960D618FE610D0078C2FC /* QMWidgetBridge.m in Sources */,
 				041F79A2190CA801008EDE80 /* JSObjectFunction.m in Sources */,
-				B8AA5B621910D98300B51001 /* QMWebView.m in Sources */,
 				B86960B218FE5FE30078C2FC /* AppDelegate.m in Sources */,
 				041F7994190C9C42008EDE80 /* QMBridget.m in Sources */,
 				B86960AB18FE5FE30078C2FC /* main.m in Sources */,

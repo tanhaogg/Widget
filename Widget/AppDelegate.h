@@ -26,6 +26,8 @@
     NSBundle *widgetBundle;
     NSBundle *pluginBundle;
     id<WidgetPluginInterface> plugin;
+    
+    NSMutableDictionary *languageDic;
 }
 @property (retain) IBOutlet NSWindow *window;
 
