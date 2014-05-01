@@ -1,0 +1,554 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		040F7C0C190B972A002AB976 /* QMWidgetSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 040F7C0B190B972A002AB976 /* QMWidgetSystem.m */; };
+		041F7994190C9C42008EDE80 /* QMBridget.m in Sources */ = {isa = PBXBuildFile; fileRef = 041F7993190C9C42008EDE80 /* QMBridget.m */; };
+		041F79A0190CA801008EDE80 /* JSObjectBridging.m in Sources */ = {isa = PBXBuildFile; fileRef = 041F7998190CA801008EDE80 /* JSObjectBridging.m */; };
+		041F79A1190CA801008EDE80 /* JSObjectConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 041F799A190CA801008EDE80 /* JSObjectConversion.m */; };
+		041F79A2190CA801008EDE80 /* JSObjectFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 041F799D190CA801008EDE80 /* JSObjectFunction.m */; };
+		041F79A3190CA801008EDE80 /* NSObject+JSObjectAssociation.m in Sources */ = {isa = PBXBuildFile; fileRef = 041F799F190CA801008EDE80 /* NSObject+JSObjectAssociation.m */; };
+		0448DBFE1911403C00A3F894 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0448DBFD1911403C00A3F894 /* MainMenu.xib */; };
+		0448DC03191140EB00A3F894 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0448DC05191140EB00A3F894 /* InfoPlist.strings */; };
+		0448DC08191140F300A3F894 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 0448DC0A191140F300A3F894 /* Credits.rtf */; };
+		B83E3A5E1905007F00D505CB /* QMWidgetMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = B83E3A5D1905007F00D505CB /* QMWidgetMenu.m */; };
+		B869609F18FE5FE30078C2FC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B869609E18FE5FE30078C2FC /* Cocoa.framework */; };
+		B86960AB18FE5FE30078C2FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B86960AA18FE5FE30078C2FC /* main.m */; };
+		B86960B218FE5FE30078C2FC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B86960B118FE5FE30078C2FC /* AppDelegate.m */; };
+		B86960BE18FE5FE30078C2FC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B86960BD18FE5FE30078C2FC /* XCTest.framework */; };
+		B86960BF18FE5FE30078C2FC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B869609E18FE5FE30078C2FC /* Cocoa.framework */; };
+		B86960C918FE5FE30078C2FC /* WidgetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B86960C818FE5FE30078C2FC /* WidgetTests.m */; };
+		B86960D318FE60190078C2FC /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B86960D218FE60190078C2FC /* WebKit.framework */; };
+		B86960D618FE610D0078C2FC /* QMWidgetBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = B86960D518FE610D0078C2FC /* QMWidgetBridge.m */; };
+		B86960D818FF70070078C2FC /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B86960D718FF70070078C2FC /* JavaScriptCore.framework */; };
+		B86960DA18FF77070078C2FC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B86960D918FF77070078C2FC /* QuartzCore.framework */; };
+		B8AA5B621910D98300B51001 /* QMWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AA5B611910D98300B51001 /* QMWebView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B86960C018FE5FE30078C2FC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B869609318FE5FE30078C2FC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B869609A18FE5FE30078C2FC;
+			remoteInfo = Widget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		040F7C0A190B972A002AB976 /* QMWidgetSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMWidgetSystem.h; sourceTree = "<group>"; };
+		040F7C0B190B972A002AB976 /* QMWidgetSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMWidgetSystem.m; sourceTree = "<group>"; };
+		041F7992190C9C42008EDE80 /* QMBridget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMBridget.h; sourceTree = "<group>"; };
+		041F7993190C9C42008EDE80 /* QMBridget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMBridget.m; sourceTree = "<group>"; };
+		041F7996190CA801008EDE80 /* JSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSObject.h; sourceTree = "<group>"; };
+		041F7997190CA801008EDE80 /* JSObjectBridging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSObjectBridging.h; sourceTree = "<group>"; };
+		041F7998190CA801008EDE80 /* JSObjectBridging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSObjectBridging.m; sourceTree = "<group>"; };
+		041F7999190CA801008EDE80 /* JSObjectConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSObjectConversion.h; sourceTree = "<group>"; };
+		041F799A190CA801008EDE80 /* JSObjectConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSObjectConversion.m; sourceTree = "<group>"; };
+		041F799B190CA801008EDE80 /* JSObjectDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSObjectDefines.h; sourceTree = "<group>"; };
+		041F799C190CA801008EDE80 /* JSObjectFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSObjectFunction.h; sourceTree = "<group>"; };
+		041F799D190CA801008EDE80 /* JSObjectFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSObjectFunction.m; sourceTree = "<group>"; };
+		041F799E190CA801008EDE80 /* NSObject+JSObjectAssociation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JSObjectAssociation.h"; sourceTree = "<group>"; };
+		041F799F190CA801008EDE80 /* NSObject+JSObjectAssociation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JSObjectAssociation.m"; sourceTree = "<group>"; };
+		0448DBFD1911403C00A3F894 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		0448DC04191140EB00A3F894 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0448DC06191140EE00A3F894 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		0448DC07191140EF00A3F894 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		0448DC09191140F300A3F894 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		0448DC0B191140F600A3F894 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hant"; path = "zh-Hant.lproj/Credits.rtf"; sourceTree = "<group>"; };
+		0448DC0C191140F700A3F894 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hans"; path = "zh-Hans.lproj/Credits.rtf"; sourceTree = "<group>"; };
+		0448DC0D1911419400A3F894 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0448DC0E1911419400A3F894 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file; name = ja; path = ja.lproj/Credits.rtf; sourceTree = "<group>"; };
+		B83E3A5C1905007F00D505CB /* QMWidgetMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMWidgetMenu.h; sourceTree = "<group>"; };
+		B83E3A5D1905007F00D505CB /* QMWidgetMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMWidgetMenu.m; sourceTree = "<group>"; };
+		B869609B18FE5FE30078C2FC /* Widget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Widget.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B869609E18FE5FE30078C2FC /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		B86960A118FE5FE30078C2FC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		B86960A218FE5FE30078C2FC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B86960A318FE5FE30078C2FC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B86960A618FE5FE30078C2FC /* Widget-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Widget-Info.plist"; sourceTree = "<group>"; };
+		B86960AA18FE5FE30078C2FC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B86960AC18FE5FE30078C2FC /* Widget-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Widget-Prefix.pch"; sourceTree = "<group>"; };
+		B86960B018FE5FE30078C2FC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B86960B118FE5FE30078C2FC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B86960BC18FE5FE30078C2FC /* WidgetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WidgetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B86960BD18FE5FE30078C2FC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		B86960C418FE5FE30078C2FC /* WidgetTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WidgetTests-Info.plist"; sourceTree = "<group>"; };
+		B86960C818FE5FE30078C2FC /* WidgetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WidgetTests.m; sourceTree = "<group>"; };
+		B86960D218FE60190078C2FC /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		B86960D418FE610D0078C2FC /* QMWidgetBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMWidgetBridge.h; sourceTree = "<group>"; };
+		B86960D518FE610D0078C2FC /* QMWidgetBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMWidgetBridge.m; sourceTree = "<group>"; };
+		B86960D718FF70070078C2FC /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		B86960D918FF77070078C2FC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B8AA5B601910D98300B51001 /* QMWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMWebView.h; sourceTree = "<group>"; };
+		B8AA5B611910D98300B51001 /* QMWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMWebView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B869609818FE5FE30078C2FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B86960DA18FF77070078C2FC /* QuartzCore.framework in Frameworks */,
+				B86960D818FF70070078C2FC /* JavaScriptCore.framework in Frameworks */,
+				B86960D318FE60190078C2FC /* WebKit.framework in Frameworks */,
+				B869609F18FE5FE30078C2FC /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B86960B918FE5FE30078C2FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B86960BF18FE5FE30078C2FC /* Cocoa.framework in Frameworks */,
+				B86960BE18FE5FE30078C2FC /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		041F7995190CA801008EDE80 /* JSObject */ = {
+			isa = PBXGroup;
+			children = (
+				041F7996190CA801008EDE80 /* JSObject.h */,
+				041F7997190CA801008EDE80 /* JSObjectBridging.h */,
+				041F7998190CA801008EDE80 /* JSObjectBridging.m */,
+				041F7999190CA801008EDE80 /* JSObjectConversion.h */,
+				041F799A190CA801008EDE80 /* JSObjectConversion.m */,
+				041F799B190CA801008EDE80 /* JSObjectDefines.h */,
+				041F799C190CA801008EDE80 /* JSObjectFunction.h */,
+				041F799D190CA801008EDE80 /* JSObjectFunction.m */,
+				041F799E190CA801008EDE80 /* NSObject+JSObjectAssociation.h */,
+				041F799F190CA801008EDE80 /* NSObject+JSObjectAssociation.m */,
+			);
+			path = JSObject;
+			sourceTree = "<group>";
+		};
+		B869609218FE5FE30078C2FC = {
+			isa = PBXGroup;
+			children = (
+				B86960A418FE5FE30078C2FC /* Widget */,
+				B86960C218FE5FE30078C2FC /* WidgetTests */,
+				B869609D18FE5FE30078C2FC /* Frameworks */,
+				B869609C18FE5FE30078C2FC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B869609C18FE5FE30078C2FC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B869609B18FE5FE30078C2FC /* Widget.app */,
+				B86960BC18FE5FE30078C2FC /* WidgetTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B869609D18FE5FE30078C2FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B86960D918FF77070078C2FC /* QuartzCore.framework */,
+				B86960D718FF70070078C2FC /* JavaScriptCore.framework */,
+				B86960D218FE60190078C2FC /* WebKit.framework */,
+				B869609E18FE5FE30078C2FC /* Cocoa.framework */,
+				B86960BD18FE5FE30078C2FC /* XCTest.framework */,
+				B86960A018FE5FE30078C2FC /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B86960A018FE5FE30078C2FC /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B86960A118FE5FE30078C2FC /* AppKit.framework */,
+				B86960A218FE5FE30078C2FC /* CoreData.framework */,
+				B86960A318FE5FE30078C2FC /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		B86960A418FE5FE30078C2FC /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				041F7995190CA801008EDE80 /* JSObject */,
+				B86960B018FE5FE30078C2FC /* AppDelegate.h */,
+				B86960B118FE5FE30078C2FC /* AppDelegate.m */,
+				041F7992190C9C42008EDE80 /* QMBridget.h */,
+				041F7993190C9C42008EDE80 /* QMBridget.m */,
+				B86960D418FE610D0078C2FC /* QMWidgetBridge.h */,
+				B86960D518FE610D0078C2FC /* QMWidgetBridge.m */,
+				B83E3A5C1905007F00D505CB /* QMWidgetMenu.h */,
+				B83E3A5D1905007F00D505CB /* QMWidgetMenu.m */,
+				040F7C0A190B972A002AB976 /* QMWidgetSystem.h */,
+				040F7C0B190B972A002AB976 /* QMWidgetSystem.m */,
+				B8AA5B601910D98300B51001 /* QMWebView.h */,
+				B8AA5B611910D98300B51001 /* QMWebView.m */,
+				0448DBFD1911403C00A3F894 /* MainMenu.xib */,
+				B86960A518FE5FE30078C2FC /* Supporting Files */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		B86960A518FE5FE30078C2FC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0448DC05191140EB00A3F894 /* InfoPlist.strings */,
+				0448DC0A191140F300A3F894 /* Credits.rtf */,
+				B86960A618FE5FE30078C2FC /* Widget-Info.plist */,
+				B86960AA18FE5FE30078C2FC /* main.m */,
+				B86960AC18FE5FE30078C2FC /* Widget-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B86960C218FE5FE30078C2FC /* WidgetTests */ = {
+			isa = PBXGroup;
+			children = (
+				B86960C818FE5FE30078C2FC /* WidgetTests.m */,
+				B86960C318FE5FE30078C2FC /* Supporting Files */,
+			);
+			path = WidgetTests;
+			sourceTree = "<group>";
+		};
+		B86960C318FE5FE30078C2FC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B86960C418FE5FE30078C2FC /* WidgetTests-Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B869609A18FE5FE30078C2FC /* Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B86960CC18FE5FE30078C2FC /* Build configuration list for PBXNativeTarget "Widget" */;
+			buildPhases = (
+				B869609718FE5FE30078C2FC /* Sources */,
+				B869609818FE5FE30078C2FC /* Frameworks */,
+				B869609918FE5FE30078C2FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Widget;
+			productName = Widget;
+			productReference = B869609B18FE5FE30078C2FC /* Widget.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B86960BB18FE5FE30078C2FC /* WidgetTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B86960CF18FE5FE30078C2FC /* Build configuration list for PBXNativeTarget "WidgetTests" */;
+			buildPhases = (
+				B86960B818FE5FE30078C2FC /* Sources */,
+				B86960B918FE5FE30078C2FC /* Frameworks */,
+				B86960BA18FE5FE30078C2FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B86960C118FE5FE30078C2FC /* PBXTargetDependency */,
+			);
+			name = WidgetTests;
+			productName = WidgetTests;
+			productReference = B86960BC18FE5FE30078C2FC /* WidgetTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B869609318FE5FE30078C2FC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "http://www.tanhao.me";
+				TargetAttributes = {
+					B86960BB18FE5FE30078C2FC = {
+						TestTargetID = B869609A18FE5FE30078C2FC;
+					};
+				};
+			};
+			buildConfigurationList = B869609618FE5FE30078C2FC /* Build configuration list for PBXProject "Widget" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+				"zh-Hant",
+				ja,
+			);
+			mainGroup = B869609218FE5FE30078C2FC;
+			productRefGroup = B869609C18FE5FE30078C2FC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B869609A18FE5FE30078C2FC /* Widget */,
+				B86960BB18FE5FE30078C2FC /* WidgetTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B869609918FE5FE30078C2FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0448DBFE1911403C00A3F894 /* MainMenu.xib in Resources */,
+				0448DC08191140F300A3F894 /* Credits.rtf in Resources */,
+				0448DC03191140EB00A3F894 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B86960BA18FE5FE30078C2FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B869609718FE5FE30078C2FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B83E3A5E1905007F00D505CB /* QMWidgetMenu.m in Sources */,
+				041F79A3190CA801008EDE80 /* NSObject+JSObjectAssociation.m in Sources */,
+				041F79A1190CA801008EDE80 /* JSObjectConversion.m in Sources */,
+				B86960D618FE610D0078C2FC /* QMWidgetBridge.m in Sources */,
+				041F79A2190CA801008EDE80 /* JSObjectFunction.m in Sources */,
+				B8AA5B621910D98300B51001 /* QMWebView.m in Sources */,
+				B86960B218FE5FE30078C2FC /* AppDelegate.m in Sources */,
+				041F7994190C9C42008EDE80 /* QMBridget.m in Sources */,
+				B86960AB18FE5FE30078C2FC /* main.m in Sources */,
+				040F7C0C190B972A002AB976 /* QMWidgetSystem.m in Sources */,
+				041F79A0190CA801008EDE80 /* JSObjectBridging.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B86960B818FE5FE30078C2FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B86960C918FE5FE30078C2FC /* WidgetTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B86960C118FE5FE30078C2FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B869609A18FE5FE30078C2FC /* Widget */;
+			targetProxy = B86960C018FE5FE30078C2FC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0448DC05191140EB00A3F894 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0448DC04191140EB00A3F894 /* en */,
+				0448DC06191140EE00A3F894 /* zh-Hant */,
+				0448DC07191140EF00A3F894 /* zh-Hans */,
+				0448DC0D1911419400A3F894 /* ja */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0448DC0A191140F300A3F894 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0448DC09191140F300A3F894 /* en */,
+				0448DC0B191140F600A3F894 /* zh-Hant */,
+				0448DC0C191140F700A3F894 /* zh-Hans */,
+				0448DC0E1911419400A3F894 /* ja */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B86960CA18FE5FE30078C2FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B86960CB18FE5FE30078C2FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		B86960CD18FE5FE30078C2FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Widget/Widget-Prefix.pch";
+				INFOPLIST_FILE = "Widget/Widget-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B86960CE18FE5FE30078C2FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Widget/Widget-Prefix.pch";
+				INFOPLIST_FILE = "Widget/Widget-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		B86960D018FE5FE30078C2FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Widget.app/Contents/MacOS/Widget";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Widget/Widget-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "WidgetTests/WidgetTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		B86960D118FE5FE30078C2FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Widget.app/Contents/MacOS/Widget";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Widget/Widget-Prefix.pch";
+				INFOPLIST_FILE = "WidgetTests/WidgetTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B869609618FE5FE30078C2FC /* Build configuration list for PBXProject "Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B86960CA18FE5FE30078C2FC /* Debug */,
+				B86960CB18FE5FE30078C2FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B86960CC18FE5FE30078C2FC /* Build configuration list for PBXNativeTarget "Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B86960CD18FE5FE30078C2FC /* Debug */,
+				B86960CE18FE5FE30078C2FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B86960CF18FE5FE30078C2FC /* Build configuration list for PBXNativeTarget "WidgetTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B86960D018FE5FE30078C2FC /* Debug */,
+				B86960D118FE5FE30078C2FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B869609318FE5FE30078C2FC /* Project object */;
+}
