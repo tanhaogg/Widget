@@ -97,7 +97,7 @@
     //NSString *widgetPath = @"/Library/Widgets/Stocks.wdgt";//股票
     //NSString *widgetPath = @"/Library/Widgets/Calculator.wdgt";//计算器
     //NSString *widgetPath = @"/Library/Widgets/Tile Game.wdgt";//拼贴游戏
-    NSString *widgetPath = @"/Library/Widgets/Calendar.wdgt";//日历
+    //NSString *widgetPath = @"/Library/Widgets/Calendar.wdgt";//日历
     //NSString *widgetPath = @"/Library/Widgets/World Clock.wdgt";//世界时钟
     //NSString *widgetPath = @"/Library/Widgets/Contacts.wdgt";//通讯录
     //NSString *widgetPath = @"/Library/Widgets/ESPN.wdgt";
@@ -110,7 +110,7 @@
     //NSString *widgetPath = [@"~/Library/Widgets/Screenshot Plus.wdgt" stringByExpandingTildeInPath];
     //NSString *widgetPath = [@"~/Library/Widgets/Padlock.wdgt" stringByExpandingTildeInPath];
     //NSString *widgetPath = [@"~/Library/Widgets/Bluetooth Switch.wdgt" stringByExpandingTildeInPath];
-    //NSString *widgetPath = [@"~/Library/Widgets/Wikipedia.wdgt" stringByExpandingTildeInPath];
+    NSString *widgetPath = [@"~/Library/Widgets/Wikipedia.wdgt" stringByExpandingTildeInPath];
     //NSString *widgetPath = [@"~/Library/Widgets/PEMDAS.wdgt" stringByExpandingTildeInPath];
     
     widgetBundle = [[NSBundle alloc] initWithPath:widgetPath];
@@ -122,11 +122,16 @@
     NSNumber *heightValue = [widgetBundle objectForInfoDictionaryKey:@"Height"];
     //BOOL allowSystem = [[widgetBundle objectForInfoDictionaryKey:@"AllowSystem"] boolValue];
     
+    widgetBridge = [[QMWidgetBridge alloc] init];
+    widgetBridge.bunldeIdentifier = bunldeIdentifier;
+    widgetBridge.webView = webView;
+    
     [self.window setOpaque:NO];
     [self.window setHasShadow:NO];
     [self.window setMovableByWindowBackground:YES];
     [self.window setBackgroundColor:[NSColor clearColor]];
     [(QMWidgetWindow*)self.window setWebView:webView];
+    [(QMWidgetWindow*)self.window setBridge:widgetBridge];
     
     if (widthValue && heightValue)
     {
@@ -136,12 +141,6 @@
         [self.window setFrame:frame display:YES];
         [self.window center];
     }
-    
-    widgetBridge = [[QMWidgetBridge alloc] init];
-    widgetBridge.bunldeIdentifier = bunldeIdentifier;
-    widgetBridge.webView = webView;
-    
-    [(QMWidgetWindow*)self.window setBridge:widgetBridge];
     
     NSString *pluginName = [widgetBundle objectForInfoDictionaryKey:@"Plugin"];
     if (pluginName)
@@ -153,14 +152,26 @@
         plugin = [[Plugin alloc] initWithWebView:webView];
     }
     
+    [webView setDrawsBackground:NO];
     [webView setUIDelegate:self];
     [webView setEditingDelegate:self];
     [webView setFrameLoadDelegate:self];
     [webView setPolicyDelegate:self];
     [webView setResourceLoadDelegate:self];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:mainPath]];
-    [webView.mainFrame loadRequest:request];
-    [webView setDrawsBackground:NO];
+    
+    //通过document解析一次的目的在于，防止WebView遇上自闭的script标签无法解释的情况
+    NSURL *mainURL = [NSURL fileURLWithPath:mainPath];
+    NSXMLDocument *document = [[NSXMLDocument alloc] initWithContentsOfURL:mainURL options:NSXMLDocumentTidyHTML error:NULL];
+    NSString *htmlString = [document XMLString];
+    [document release];
+    if (htmlString.length > 0)
+    {
+        [webView.mainFrame loadHTMLString:htmlString baseURL:mainURL];
+    }else
+    {
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:mainPath]];
+        [webView.mainFrame loadRequest:request];
+    }
 }
 
 - (void)viewFrameDidChanged:(NSNotification *)notify
