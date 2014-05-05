@@ -26,8 +26,6 @@
     id onblur;
     
     WebView *webView;
-    
-    id testfunction;
 }
 @property (nonatomic,retain) id bunldeIdentifier;
 @property (nonatomic,retain) id identifier;
@@ -37,12 +35,7 @@
 @property (nonatomic,retain) id onshow;
 @property (nonatomic,retain) id onhide;
 @property (nonatomic,retain) id onremove;
-
 @property (nonatomic,retain) id onsync; //WorldClock中出现
-//@property (nonatomic,retain) id onfocus;
-//@property (nonatomic,retain) id onblur;
-
-@property (nonatomic,retain) id testfunction;
 
 @property (nonatomic,assign) WebView *webView;
 

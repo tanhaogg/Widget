@@ -85,6 +85,8 @@
 
 @end
 
+#pragma mark - AppDelegate
+
 @implementation AppDelegate
 @synthesize window;
 
@@ -99,6 +101,7 @@
     //NSString *widgetPath = @"/Library/Widgets/Tile Game.wdgt";//拼贴游戏
     //NSString *widgetPath = @"/Library/Widgets/Calendar.wdgt";//日历
     //NSString *widgetPath = @"/Library/Widgets/World Clock.wdgt";//世界时钟
+    NSString *widgetPath = @"/Library/Widgets/Weather.wdgt";//天气
     //NSString *widgetPath = @"/Library/Widgets/Contacts.wdgt";//通讯录
     //NSString *widgetPath = @"/Library/Widgets/ESPN.wdgt";
     //NSString *widgetPath = @"/Library/Widgets/Flight Tracker.wdgt";
@@ -110,7 +113,7 @@
     //NSString *widgetPath = [@"~/Library/Widgets/Screenshot Plus.wdgt" stringByExpandingTildeInPath];
     //NSString *widgetPath = [@"~/Library/Widgets/Padlock.wdgt" stringByExpandingTildeInPath];
     //NSString *widgetPath = [@"~/Library/Widgets/Bluetooth Switch.wdgt" stringByExpandingTildeInPath];
-    NSString *widgetPath = [@"~/Library/Widgets/Wikipedia.wdgt" stringByExpandingTildeInPath];
+    //NSString *widgetPath = [@"~/Library/Widgets/Wikipedia.wdgt" stringByExpandingTildeInPath];
     //NSString *widgetPath = [@"~/Library/Widgets/PEMDAS.wdgt" stringByExpandingTildeInPath];
     
     widgetBundle = [[NSBundle alloc] initWithPath:widgetPath];
@@ -189,8 +192,9 @@
 
 - (void)dealloc
 {
-    [widgetBundle release];
+    [window release];
     [widgetBridge release];
+    [widgetBundle release];
     if (plugin) [plugin release];
     if (pluginBundle) [pluginBundle release];
     [[NSNotificationCenter defaultCenter] removeObserver:self];

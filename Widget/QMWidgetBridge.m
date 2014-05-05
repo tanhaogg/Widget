@@ -7,7 +7,6 @@
 //
 
 #import "QMWidgetBridge.h"
-#import <JavaScriptCore/JavaScript.h>
 #import <QuartzCore/QuartzCore.h>
 #import "QMWidgetMenu.h"
 #import "QMWidgetSystem.h"
@@ -16,7 +15,6 @@
 @synthesize bunldeIdentifier;
 @synthesize identifier,ondragstart,ondragend,onshow,onhide,onsync,onremove;
 @synthesize webView;
-@synthesize testfunction;
 
 - (id)init
 {
@@ -30,23 +28,12 @@
 
 #pragma mark - Methods
 
+#ifdef DEBUG
 - (void)log:(NSString *)log
 {
     NSLog(@"%@",log);
 }
-
-- (void)test:(id)value
-{
-    JSObjectRef jsRef = [(WebScriptObject*)value JSObject];
-    JSContextRef ctx = [[webView mainFrame] globalContext];
-    
-    bool isFun = JSObjectIsFunction(ctx, jsRef);
-    if (isFun)
-    {
-        JSValueRef obj = JSValueWithNSObject(ctx, self, NULL);
-        JSObjectCallAsFunction(ctx, jsRef, NULL, 1, &obj, NULL);
-    }
-}
+#endif
 
 - (void)openApplication:(NSString *)value
 {

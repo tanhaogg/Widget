@@ -18,42 +18,6 @@
     self = [super init];
     if (self)
     {
-        /*
-        //先将空白地址转义
-        NSString *aliasString = @"_$_";
-        NSString *commandString = [string stringByReplacingOccurrencesOfString:@"\\ " withString:aliasString];
-        
-        //通过空格分离出可执行文件和各个参数
-        NSArray *components = [commandString componentsSeparatedByString:@" "];
-        if (components.count == 0)
-        {
-            [self release];
-            return nil;
-        }
-        
-        //可执行文件地址
-        NSString *taskPath = [components objectAtIndex:0];
-        taskPath = [taskPath stringByReplacingOccurrencesOfString:aliasString withString:@" "];
-        if (![[NSFileManager defaultManager] fileExistsAtPath:taskPath])
-        {
-            [self release];
-            return nil;
-        }
-        
-        task = [[NSTask alloc] init];
-        [task setLaunchPath:taskPath];
-        
-        //参数
-        NSMutableArray *arguments = [NSMutableArray array];
-        for (int i=1; i<components.count; i++)
-        {
-            NSString *arg = [components objectAtIndex:i];
-            arg = [arg stringByReplacingOccurrencesOfString:aliasString withString:@"\\ "];
-            [arguments addObject:arg];
-        }
-        [task setArguments:arguments];
-         */
-        
         if (!string)
         {
             [self release];
