@@ -102,6 +102,11 @@
     }
 }
 
+- (void)close
+{
+    
+}
+
 - (void)dealloc
 {
     [widgetPath release];

@@ -17,6 +17,11 @@
     return YES;
 }
 
+- (BOOL)canBecomeMainWindow
+{
+    return YES;
+}
+
 - (void)sendEvent:(NSEvent *)theEvent
 {
     if (theEvent.type != NSLeftMouseDown)
@@ -70,6 +75,33 @@
             break;
         }
     }
+}
+
+- (BOOL)performKeyEquivalent:(NSEvent *)theEvent
+{
+    if (theEvent.type == NSKeyDown &&
+        theEvent.keyCode == 13 &&
+        (theEvent.modifierFlags&NSDeviceIndependentModifierFlagsMask) == NSCommandKeyMask)
+    {
+        [[NSApp delegate] performSelector:@selector(windowWillClose:) withObject:self];
+        return YES;
+    }
+    return [super performKeyEquivalent:theEvent];
+}
+
+- (BOOL)windowShouldClose:(id)sender
+{
+    return YES;
+}
+
+- (BOOL)validateMenuItem:(NSMenuItem *)menuItem
+{
+    return ([menuItem action] == @selector(performClose:)) ? YES : [super validateMenuItem:menuItem];
+}
+
+- (void)performClose:(id)sender
+{
+    
 }
 
 - (void)dealloc

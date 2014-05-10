@@ -25,7 +25,12 @@
             if ([subItem.pathExtension.lowercaseString isEqualToString:@"wdgt"])
             {
                 NSString *widgetPath = [searchPath stringByAppendingPathComponent:subItem];
-                NSMenuItem *menuItem = [[NSMenuItem alloc] initWithTitle:subItem action:@selector(openWidgetAction:) keyEquivalent:@""];
+                NSMenuItem *menuItem = [[NSMenuItem alloc] init];
+                NSImage *image = [[NSWorkspace sharedWorkspace] iconForFile:widgetPath];
+                [image setSize:NSMakeSize(16, 16)];
+                menuItem.image = image;
+                menuItem.title = [[NSFileManager defaultManager] displayNameAtPath:widgetPath];
+                menuItem.action = @selector(openWidgetAction:);
                 menuItem.target = self;
                 menuItem.representedObject = widgetPath;
                 [widgetMenu addItem:menuItem];
@@ -34,20 +39,63 @@
         }
     }
     [openFileItem setSubmenu:widgetMenu];
-    
-    /*
-    QMWidgetWindowController *widgetWC = [[QMWidgetWindowController alloc] initWithPath:widgetPath];
-    [widgetWC.window orderFront:nil];
-     */
+}
+
+- (void)windowWillClose:(NSWindow *)aWindow
+{
+    QMWidgetWindowController *widgetWC = nil;
+    for (QMWidgetWindowController *windowController in widgetArray)
+    {
+        if (windowController.window == aWindow)
+        {
+            widgetWC = windowController;
+            break;
+        }
+    }
+    if (widgetWC)
+    {
+        NSArray *items = [widgetMenu itemArray];
+        for (NSMenuItem *item in items)
+        {
+            if ([item.representedObject isEqualToString:widgetWC.widgetPath])
+            {
+                [item setState:NSOffState];
+            }
+        }
+        
+        [widgetWC.window close];
+        [widgetArray removeObject:widgetWC];
+    }
 }
 
 - (void)openWidgetAction:(id)sender
 {
     NSMenuItem *item = (NSMenuItem *)sender;
-    QMWidgetWindowController *widgetWC = [[QMWidgetWindowController alloc] initWithPath:item.representedObject];
-    [widgetWC.window orderFront:nil];
-    [widgetArray addObject:widgetWC];
-    [widgetWC release];
+    NSString *widgetPath = [item representedObject];
+    
+    QMWidgetWindowController *widgetWC = nil;
+    for (QMWidgetWindowController *windowController in widgetArray)
+    {
+        if ([windowController.widgetPath isEqualTo:widgetPath])
+        {
+            widgetWC = windowController;
+            break;
+        }
+    }
+    
+    if (widgetWC)
+    {
+        [item setState:NSOffState];
+        [widgetWC.window close];
+        [widgetArray removeObject:widgetWC];
+    }else
+    {
+        [item setState:NSOnState];
+        widgetWC = [[QMWidgetWindowController alloc] initWithPath:widgetPath];
+        [widgetWC.window makeKeyAndOrderFront:nil];
+        [widgetArray addObject:widgetWC];
+        [widgetWC release];
+    }
 }
 
 - (void)dealloc
