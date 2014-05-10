@@ -15,6 +15,10 @@
 		041F79A3190CA801008EDE80 /* NSObject+JSObjectAssociation.m in Sources */ = {isa = PBXBuildFile; fileRef = 041F799F190CA801008EDE80 /* NSObject+JSObjectAssociation.m */; };
 		042BFB9819125C1000BB8C8E /* DOMNode+Widget.m in Sources */ = {isa = PBXBuildFile; fileRef = 042BFB9719125C1000BB8C8E /* DOMNode+Widget.m */; };
 		0448DBFE1911403C00A3F894 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0448DBFD1911403C00A3F894 /* MainMenu.xib */; };
+		B81711E6191DDAD300339CC1 /* QMWidgetHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B81711E5191DDAD300339CC1 /* QMWidgetHelper.m */; };
+		B81711EA191E136A00339CC1 /* QMWidgetWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = B81711E8191E136A00339CC1 /* QMWidgetWindowController.m */; };
+		B81711EB191E136A00339CC1 /* QMWidgetWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B81711E9191E136A00339CC1 /* QMWidgetWindowController.xib */; };
+		B81711EE191E13E300339CC1 /* QMWidgetWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = B81711ED191E13E300339CC1 /* QMWidgetWindow.m */; };
 		B83E3A5E1905007F00D505CB /* QMWidgetMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = B83E3A5D1905007F00D505CB /* QMWidgetMenu.m */; };
 		B869609F18FE5FE30078C2FC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B869609E18FE5FE30078C2FC /* Cocoa.framework */; };
 		B86960AB18FE5FE30078C2FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B86960AA18FE5FE30078C2FC /* main.m */; };
@@ -58,6 +62,13 @@
 		042BFB9619125C1000BB8C8E /* DOMNode+Widget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DOMNode+Widget.h"; sourceTree = "<group>"; };
 		042BFB9719125C1000BB8C8E /* DOMNode+Widget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DOMNode+Widget.m"; sourceTree = "<group>"; };
 		0448DBFD1911403C00A3F894 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		B81711E4191DDAD300339CC1 /* QMWidgetHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMWidgetHelper.h; sourceTree = "<group>"; };
+		B81711E5191DDAD300339CC1 /* QMWidgetHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMWidgetHelper.m; sourceTree = "<group>"; };
+		B81711E7191E136A00339CC1 /* QMWidgetWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMWidgetWindowController.h; sourceTree = "<group>"; };
+		B81711E8191E136A00339CC1 /* QMWidgetWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMWidgetWindowController.m; sourceTree = "<group>"; };
+		B81711E9191E136A00339CC1 /* QMWidgetWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QMWidgetWindowController.xib; sourceTree = "<group>"; };
+		B81711EC191E13E300339CC1 /* QMWidgetWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMWidgetWindow.h; sourceTree = "<group>"; };
+		B81711ED191E13E300339CC1 /* QMWidgetWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMWidgetWindow.m; sourceTree = "<group>"; };
 		B83E3A5C1905007F00D505CB /* QMWidgetMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMWidgetMenu.h; sourceTree = "<group>"; };
 		B83E3A5D1905007F00D505CB /* QMWidgetMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMWidgetMenu.m; sourceTree = "<group>"; };
 		B869609B18FE5FE30078C2FC /* Widget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Widget.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +135,34 @@
 			path = JSObject;
 			sourceTree = "<group>";
 		};
+		B81711EF191E209A00339CC1 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				042BFB9619125C1000BB8C8E /* DOMNode+Widget.h */,
+				042BFB9719125C1000BB8C8E /* DOMNode+Widget.m */,
+				B81711E4191DDAD300339CC1 /* QMWidgetHelper.h */,
+				B81711E5191DDAD300339CC1 /* QMWidgetHelper.m */,
+				B81711EC191E13E300339CC1 /* QMWidgetWindow.h */,
+				B81711ED191E13E300339CC1 /* QMWidgetWindow.m */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		B81711F0191E20C600339CC1 /* Bridget */ = {
+			isa = PBXGroup;
+			children = (
+				041F7992190C9C42008EDE80 /* QMBridget.h */,
+				041F7993190C9C42008EDE80 /* QMBridget.m */,
+				B86960D418FE610D0078C2FC /* QMWidgetBridge.h */,
+				B86960D518FE610D0078C2FC /* QMWidgetBridge.m */,
+				B83E3A5C1905007F00D505CB /* QMWidgetMenu.h */,
+				B83E3A5D1905007F00D505CB /* QMWidgetMenu.m */,
+				040F7C0A190B972A002AB976 /* QMWidgetSystem.h */,
+				040F7C0B190B972A002AB976 /* QMWidgetSystem.m */,
+			);
+			name = Bridget;
+			sourceTree = "<group>";
+		};
 		B869609218FE5FE30078C2FC = {
 			isa = PBXGroup;
 			children = (
@@ -169,19 +208,14 @@
 		B86960A418FE5FE30078C2FC /* Widget */ = {
 			isa = PBXGroup;
 			children = (
+				B81711F0191E20C600339CC1 /* Bridget */,
+				B81711EF191E209A00339CC1 /* Common */,
 				041F7995190CA801008EDE80 /* JSObject */,
 				B86960B018FE5FE30078C2FC /* AppDelegate.h */,
 				B86960B118FE5FE30078C2FC /* AppDelegate.m */,
-				041F7992190C9C42008EDE80 /* QMBridget.h */,
-				041F7993190C9C42008EDE80 /* QMBridget.m */,
-				B86960D418FE610D0078C2FC /* QMWidgetBridge.h */,
-				B86960D518FE610D0078C2FC /* QMWidgetBridge.m */,
-				B83E3A5C1905007F00D505CB /* QMWidgetMenu.h */,
-				B83E3A5D1905007F00D505CB /* QMWidgetMenu.m */,
-				040F7C0A190B972A002AB976 /* QMWidgetSystem.h */,
-				040F7C0B190B972A002AB976 /* QMWidgetSystem.m */,
-				042BFB9619125C1000BB8C8E /* DOMNode+Widget.h */,
-				042BFB9719125C1000BB8C8E /* DOMNode+Widget.m */,
+				B81711E7191E136A00339CC1 /* QMWidgetWindowController.h */,
+				B81711E8191E136A00339CC1 /* QMWidgetWindowController.m */,
+				B81711E9191E136A00339CC1 /* QMWidgetWindowController.xib */,
 				0448DBFD1911403C00A3F894 /* MainMenu.xib */,
 				B86960A518FE5FE30078C2FC /* Supporting Files */,
 			);
@@ -297,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0448DBFE1911403C00A3F894 /* MainMenu.xib in Resources */,
+				B81711EB191E136A00339CC1 /* QMWidgetWindowController.xib in Resources */,
 				B8795C3D19172C88009B8D8B /* InfoPlist.strings in Resources */,
 				B8795C3C19172C88009B8D8B /* Credits.rtf in Resources */,
 			);
@@ -325,7 +360,10 @@
 				B86960B218FE5FE30078C2FC /* AppDelegate.m in Sources */,
 				041F7994190C9C42008EDE80 /* QMBridget.m in Sources */,
 				B86960AB18FE5FE30078C2FC /* main.m in Sources */,
+				B81711E6191DDAD300339CC1 /* QMWidgetHelper.m in Sources */,
 				040F7C0C190B972A002AB976 /* QMWidgetSystem.m in Sources */,
+				B81711EE191E13E300339CC1 /* QMWidgetWindow.m in Sources */,
+				B81711EA191E136A00339CC1 /* QMWidgetWindowController.m in Sources */,
 				041F79A0190CA801008EDE80 /* JSObjectBridging.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

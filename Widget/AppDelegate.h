@@ -7,28 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <WebKit/WebKit.h>
-#import "QMWidgetBridge.h"
-
-@protocol WidgetPluginInterface <NSObject>
-
-- (id)initWithWebView:(WebView *)webView;
-- (void)windowScriptObjectAvailable:(WebScriptObject *)windowScriptObject;
-
-@end
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 {
-    NSWindow *window;
-    IBOutlet WebView *webView;
-    QMWidgetBridge *widgetBridge;
-    
-    NSBundle *widgetBundle;
-    NSBundle *pluginBundle;
-    id<WidgetPluginInterface> plugin;
-    
-    NSMutableDictionary *languageDic;
+    NSMenu *widgetMenu;
+    NSMutableArray *widgetArray;
+    IBOutlet NSMenuItem *openFileItem;
 }
-@property (retain) IBOutlet NSWindow *window;
-
 @end
