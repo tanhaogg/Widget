@@ -19,16 +19,16 @@
 
 @interface QMWidgetWindowController : NSWindowController
 {
-    IBOutlet WebView *webView;
+    WebView *webView;
     QMWidgetBridge *widgetBridge;
     
     NSString *widgetPath;
     NSBundle *widgetBundle;
-    NSBundle *pluginBundle;
     id<WidgetPluginInterface> plugin;
     
     NSMutableDictionary *languageDic;
 }
+@property (nonatomic, retain) WebView *webView;
 @property (nonatomic, retain) NSString *widgetPath;
 
 - (id)initWithPath:(NSString *)path;

@@ -91,7 +91,7 @@
     transition.type = @"cube";
     transition.subtype = kCATransitionFromRight;
     transition.duration = 0.5;
-    NSWindow *window = [[NSApp delegate] performSelector:@selector(window)];
+    NSWindow *window = [webView window];
     [window.contentView setWantsLayer:YES];
     [(NSView*)window.contentView display];
     
@@ -151,7 +151,7 @@
                               [value3 floatValue],
                               [value4 floatValue]);
     
-    NSWindow *window = [[NSApp delegate] performSelector:@selector(window)];
+    NSWindow *window = [webView window];
     [window setFrame:frame display:YES];
      */
 }

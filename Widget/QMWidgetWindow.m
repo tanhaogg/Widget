@@ -94,18 +94,16 @@
     return YES;
 }
 
+/*
 - (BOOL)validateMenuItem:(NSMenuItem *)menuItem
 {
     return ([menuItem action] == @selector(performClose:)) ? YES : [super validateMenuItem:menuItem];
 }
-
-- (void)performClose:(id)sender
-{
-    
-}
+ */
 
 - (void)dealloc
 {
+    NSLog(@"window release %@",self);
     if (webView) [webView release];
     [super dealloc];
 }

@@ -19,6 +19,7 @@
 		B81711EA191E136A00339CC1 /* QMWidgetWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = B81711E8191E136A00339CC1 /* QMWidgetWindowController.m */; };
 		B81711EB191E136A00339CC1 /* QMWidgetWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B81711E9191E136A00339CC1 /* QMWidgetWindowController.xib */; };
 		B81711EE191E13E300339CC1 /* QMWidgetWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = B81711ED191E13E300339CC1 /* QMWidgetWindow.m */; };
+		B81711F2191F017E00339CC1 /* dashboard.png in Resources */ = {isa = PBXBuildFile; fileRef = B81711F1191F017E00339CC1 /* dashboard.png */; };
 		B83E3A5E1905007F00D505CB /* QMWidgetMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = B83E3A5D1905007F00D505CB /* QMWidgetMenu.m */; };
 		B869609F18FE5FE30078C2FC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B869609E18FE5FE30078C2FC /* Cocoa.framework */; };
 		B86960AB18FE5FE30078C2FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B86960AA18FE5FE30078C2FC /* main.m */; };
@@ -69,6 +70,7 @@
 		B81711E9191E136A00339CC1 /* QMWidgetWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QMWidgetWindowController.xib; sourceTree = "<group>"; };
 		B81711EC191E13E300339CC1 /* QMWidgetWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMWidgetWindow.h; sourceTree = "<group>"; };
 		B81711ED191E13E300339CC1 /* QMWidgetWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMWidgetWindow.m; sourceTree = "<group>"; };
+		B81711F1191F017E00339CC1 /* dashboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dashboard.png; sourceTree = "<group>"; };
 		B83E3A5C1905007F00D505CB /* QMWidgetMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMWidgetMenu.h; sourceTree = "<group>"; };
 		B83E3A5D1905007F00D505CB /* QMWidgetMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMWidgetMenu.m; sourceTree = "<group>"; };
 		B869609B18FE5FE30078C2FC /* Widget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Widget.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -226,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				B8795C3A19172C88009B8D8B /* Credits.rtf */,
+				B81711F1191F017E00339CC1 /* dashboard.png */,
 				B8795C3B19172C88009B8D8B /* InfoPlist.strings */,
 				B86960A618FE5FE30078C2FC /* Widget-Info.plist */,
 				B86960AA18FE5FE30078C2FC /* main.m */,
@@ -332,6 +335,7 @@
 			files = (
 				0448DBFE1911403C00A3F894 /* MainMenu.xib in Resources */,
 				B81711EB191E136A00339CC1 /* QMWidgetWindowController.xib in Resources */,
+				B81711F2191F017E00339CC1 /* dashboard.png in Resources */,
 				B8795C3D19172C88009B8D8B /* InfoPlist.strings in Resources */,
 				B8795C3C19172C88009B8D8B /* Credits.rtf in Resources */,
 			);

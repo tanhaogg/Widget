@@ -13,10 +13,32 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:20] retain];
+    NSImage *statusImage = [NSImage imageNamed:@"dashboard"];
+    [statusImage setSize:NSMakeSize(20, 20)];
+    statusItem.image = statusImage;
+    
+    NSMenu *statusMenu = [[NSMenu alloc] init];
+    NSMenuItem *openItem = [[NSMenuItem alloc] init];
+    openItem.title = @"Open...";
+    [statusMenu addItem:openItem];
+    [openItem release];
+    
+    NSMenuItem *quitItem = [[NSMenuItem alloc] init];
+    quitItem.title = @"Quit";
+    quitItem.keyEquivalent = @"Q";
+    quitItem.target = self;
+    quitItem.action = @selector(quitAction:);
+    [statusMenu addItem:quitItem];
+    [quitItem release];
+    
+    [statusItem setMenu:statusMenu];
+    [statusMenu release];
+    
     widgetMenu = [[NSMenu alloc] init];
     widgetArray = [[NSMutableArray alloc] init];
     
-    NSArray *searchArray = @[@"/Library/Widgets/",[@"~/Library/Widgets/iStat nano.wdgt" stringByExpandingTildeInPath]];
+    NSArray *searchArray = @[@"/Library/Widgets/",[@"~/Library/Widgets/" stringByExpandingTildeInPath]];
     for (NSString *searchPath in searchArray)
     {
         NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:searchPath error:NULL];
@@ -38,7 +60,7 @@
             }
         }
     }
-    [openFileItem setSubmenu:widgetMenu];
+    [openItem setSubmenu:widgetMenu];
 }
 
 - (void)windowWillClose:(NSWindow *)aWindow
@@ -63,9 +85,15 @@
             }
         }
         
-        [widgetWC.window close];
+        [widgetWC close];
         [widgetArray removeObject:widgetWC];
     }
+}
+
+- (void)quitAction:(id)sender
+{
+    [[NSStatusBar systemStatusBar] removeStatusItem:statusItem];
+    [NSApp terminate:nil];
 }
 
 - (void)openWidgetAction:(id)sender
@@ -100,6 +128,7 @@
 
 - (void)dealloc
 {
+    [statusItem release];
     [widgetMenu release];
     [widgetArray release];
     [super dealloc];

@@ -11,11 +11,24 @@
 #import "QMWidgetHelper.h"
 #import "DOMNode+Widget.h"
 
+@interface QMWebView : WebView
+@end
+
+@implementation QMWebView
+
+- (void)dealloc
+{
+    NSLog(@"webView release");
+    [super dealloc];
+}
+
+@end
+
 @interface QMWidgetWindowController ()
 @end
 
 @implementation QMWidgetWindowController
-@synthesize widgetPath;
+@synthesize webView,widgetPath;
 
 - (id)initWithPath:(NSString *)path
 {
@@ -62,11 +75,13 @@
     NSString *pluginName = [widgetBundle objectForInfoDictionaryKey:@"Plugin"];
     if (pluginName)
     {
-        NSString *pluginPath = [widgetPath stringByAppendingPathComponent:pluginName];
-        pluginBundle = [NSBundle bundleWithPath:pluginPath];
-        [pluginBundle load];
-        Class Plugin = [pluginBundle principalClass];
-        plugin = [[Plugin alloc] initWithWebView:webView];
+        @autoreleasepool
+        {
+            NSString *pluginPath = [widgetPath stringByAppendingPathComponent:pluginName];
+            NSBundle *pluginBundle = [NSBundle bundleWithPath:pluginPath];
+            Class Plugin = [pluginBundle principalClass];
+            plugin = [[Plugin alloc] initWithWebView:webView];
+        }
     }
     
     [webView setDrawsBackground:NO];
@@ -102,18 +117,14 @@
     }
 }
 
-- (void)close
-{
-    
-}
-
 - (void)dealloc
 {
+    NSLog(@"WC release");
+    [webView release];
     [widgetPath release];
     [widgetBridge release];
     [widgetBundle release];
     if (plugin) [plugin release];
-    if (pluginBundle) [pluginBundle release];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super dealloc];
 }

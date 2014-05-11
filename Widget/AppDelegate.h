@@ -10,8 +10,8 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 {
+    NSStatusItem *statusItem;
     NSMenu *widgetMenu;
     NSMutableArray *widgetArray;
-    IBOutlet NSMenuItem *openFileItem;
 }
 @end
