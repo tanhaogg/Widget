@@ -123,6 +123,8 @@
         [widgetWC.window makeKeyAndOrderFront:nil];
         [widgetArray addObject:widgetWC];
         [widgetWC release];
+        
+        [[NSRunningApplication currentApplication] activateWithOptions:NSApplicationActivateIgnoringOtherApps];
     }
 }
 

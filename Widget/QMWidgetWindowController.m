@@ -11,19 +11,6 @@
 #import "QMWidgetHelper.h"
 #import "DOMNode+Widget.h"
 
-@interface QMWebView : WebView
-@end
-
-@implementation QMWebView
-
-- (void)dealloc
-{
-    NSLog(@"webView release");
-    [super dealloc];
-}
-
-@end
-
 @interface QMWidgetWindowController ()
 @end
 
@@ -119,7 +106,6 @@
 
 - (void)dealloc
 {
-    NSLog(@"WC release");
     [webView release];
     [widgetPath release];
     [widgetBridge release];

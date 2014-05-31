@@ -103,7 +103,6 @@
 
 - (void)dealloc
 {
-    NSLog(@"window release %@",self);
     if (webView) [webView release];
     [super dealloc];
 }
